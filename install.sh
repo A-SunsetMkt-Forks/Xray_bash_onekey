@@ -1912,7 +1912,7 @@ clean_logs() {
     for i in $(find /var/log/xray/ ${nginx_dir}/logs -name "*.log"); do cat /dev/null >"$i"; done
     judge "日志清理"
     
-    #以下为兼容代码，1个大版本后未来删除
+    #以下为兼容代码，1个大版本后删除
     if [[ "${ID}" == "centos" ]]; then
         cron_file="/var/spool/cron/root"
     else
