@@ -2208,13 +2208,13 @@ basic_information() {
         Reality+ws+gRPC)
             log_echo "${OK} ${GreenBG} Xray+Reality+ws+gRPC 安装成功 ${Font}"
             ;;
-        ws ONLY)
+        ws\ ONLY)
             log_echo "${OK} ${GreenBG} ws ONLY 安装成功 ${Font}"
             ;;
-        gRPC ONLY)
+        gRPC\ ONLY)
             log_echo "${OK} ${GreenBG} gRPC ONLY 安装成功 ${Font}"
             ;;
-        ws+gRPC ONLY)
+        ws+gRPC\ ONLY)
             log_echo "${OK} ${GreenBG} ws+gRPC ONLY 安装成功 ${Font}"
             ;;
         esac
