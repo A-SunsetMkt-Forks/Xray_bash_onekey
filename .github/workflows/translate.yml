@@ -1,0 +1,40 @@
+name: Translate Chinese to English in Root Directory Files
+
+on:
+  push:
+    paths:
+      - '*.sh'
+      - '*.md'
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install googletrans==4.0.0-rc1
+
+    - name: Run translation script
+      run: |
+        python translate.py
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add languages/
+        git commit -m "Automated translation from Chinese to English" || true
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
